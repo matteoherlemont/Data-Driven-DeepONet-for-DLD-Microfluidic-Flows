@@ -1,6 +1,6 @@
-# Data-Driven-DeepONet-for-DLD-Microfluidic-Flows
+### Data-Driven-DeepONet-for-2D-DLD-Microfluidic-Flow-Prediction
 
-## DeepONet for 2D DLD Microfluidic Flow Prediction
+
 
 This repository contains a DeepONet-based surrogate model for predicting steady 2D Stokes velocity fields in parametric DLD-type microfluidic geometries.
 
@@ -15,7 +15,7 @@ This repository contains a DeepONet-based surrogate model for predicting steady 
 The goal is to learn a mapping from a 7-parameter geometry vector
 
 \[
-\theta = [r_1, r_2, y_1, y_2, y_3, y_4, x_1]^\top
+\theta = [r_1, r_2, y_1, y_2, y_3, y_4, x_1]
 \]
 
 to the corresponding velocity field \((u,v)\) in a four-pillar microfluidic channel.
@@ -24,7 +24,7 @@ to the corresponding velocity field \((u,v)\) in a four-pillar microfluidic chan
 
 The final model is a DeepONet with:
 - branch input: normalized geometry vector
-- trunk input: \((\tilde{x}, \tilde{y}, \tilde{\phi})\)
+- trunk input: (x, y, phi)
 - latent dimension: 50
 - hidden width: 100
 - depth: 5 layers
@@ -56,9 +56,3 @@ The main residual errors occur in low-velocity downstream regions, while near-pi
 3. PLEASE Update the data path in the notebook
 4. Run the notebook cells for preprocessing, training, and evaluation
 
-## Why DeepONet
-
-DeepONet is well suited here because it:
-- works directly on irregular query points
-- naturally uses a low-dimensional geometry parameterization
-- avoids interpolation to a structured grid
