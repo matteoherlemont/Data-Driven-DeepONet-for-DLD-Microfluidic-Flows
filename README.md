@@ -1,16 +1,64 @@
 # Data-Driven-DeepONet-for-DLD-Microfluidic-Flows
 
-## Test 
+## DeepONet for 2D DLD Microfluidic Flow Prediction
 
-## Data
-Dataset (4 pillars) available here: (1936 .txt files)
-[[Google Drive link](https://drive.google.com/drive/folders/1f-tOKmVRt0QJ_wjGMLIj5uin5kI9DacO?usp=share_link)]
+This repository contains a DeepONet-based surrogate model for predicting steady 2D Stokes velocity fields in parametric DLD-type microfluidic geometries.
 
-Dataset (2 pillars) available here: (324 .txt files)
-[https://drive.google.com/drive/folders/1f-tOKmVRt0QJ_wjGMLIj5uin5kI9DacO?usp=share_link]
+## Contents
 
+- Jupyter notebook for preprocessing, training, and evaluation
+- README with setup instructions
+- External dataset link
+
+## Problem
+
+The goal is to learn a mapping from a 7-parameter geometry vector
+
+\[
+\theta = [r_1, r_2, y_1, y_2, y_3, y_4, x_1]^\top
+\]
+
+to the corresponding velocity field \((u,v)\) in a four-pillar microfluidic channel.
+
+## Model
+
+The final model is a DeepONet with:
+- branch input: normalized geometry vector
+- trunk input: \((\tilde{x}, \tilde{y}, \tilde{\phi})\)
+- latent dimension: 50
+- hidden width: 100
+- depth: 5 layers
+
+The signed distance function (SDF) is included in the trunk input to encode pillar proximity.
+
+## Dataset
+
+- 1936 COMSOL simulations
+- 1045 training cases
+- 387 validation cases
+- 504 test cases
+- 5849 irregular mesh points per simulation
+
+**Google Drive data link:** 
+
+## Main result
+
+The final model achieves:
+- mean relative \(L_2\) error: 6.96e-2
+- median: 6.53e-2
+
+The main residual errors occur in low-velocity downstream regions, while near-pillar high-gradient structures are well reconstructed.
 
 ## Usage
-1. Open the notebook in Google Colab
-2. Mount Google Drive
-3. PLEASE Update the dataset path
+
+1. Clone the repository
+2. Download the dataset from Google Drive
+3. PLEASE Update the data path in the notebook
+4. Run the notebook cells for preprocessing, training, and evaluation
+
+## Why DeepONet
+
+DeepONet is well suited here because it:
+- works directly on irregular query points
+- naturally uses a low-dimensional geometry parameterization
+- avoids interpolation to a structured grid
