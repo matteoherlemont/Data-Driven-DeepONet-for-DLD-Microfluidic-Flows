@@ -14,9 +14,7 @@ This repository contains a DeepONet-based surrogate model for predicting steady 
 
 The goal is to learn a mapping from a 7-parameter geometry vector
 
-\[
-\theta = [r_1, r_2, y_1, y_2, y_3, y_4, x_1]
-\]
+theta = [r_1, r_2, y_1, y_2, y_3, y_4, x_1]
 
 to the corresponding velocity field \((u,v)\) in a four-pillar microfluidic channel.
 
@@ -24,7 +22,7 @@ to the corresponding velocity field \((u,v)\) in a four-pillar microfluidic chan
 
 The final model is a DeepONet with:
 - branch input: normalized geometry vector
-- trunk input: (x, y, phi)
+- trunk input: (x, y, sdf)
 - latent dimension: 50
 - hidden width: 100
 - depth: 5 layers
