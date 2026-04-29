@@ -37,7 +37,11 @@ The signed distance function (SDF) is included in the trunk input to encode pill
 - 504 test cases
 - 5849 irregular mesh points per simulation
 
-**Google Drive data link:** https://drive.google.com/drive/folders/1f-tOKmVRt0QJ_wjGMLIj5uin5kI9DacO?usp=share_link
+**Google Drive data link (4 pillars) :** https://drive.google.com/drive/folders/1f-tOKmVRt0QJ_wjGMLIj5uin5kI9DacO?usp=share_link
+
+
+
+Google Drive data link (2 pillars): https://drive.google.com/drive/folders/1uxtTIOXA0iOK8PDThXPDWfCWFhqoY_wD?usp=share_link
 
 ## Main result
 
